@@ -1,0 +1,70 @@
+{% extends "admin/base.html" %} {% block content %}
+
+<h1 class="mb-4">📈 Analytics Dashboard</h1>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h5>Total Active Users</h5>
+        <h2>{{ labels|length }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card shadow-sm border-0">
+      <div class="card-body text-center">
+        <h5>Total Conversations</h5>
+        <h2>{{ values | sum }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User Analytics Table -->
+<div class="card shadow-sm border-0">
+  <div class="card-header">
+    <h5 class="mb-0">User Activity</h5>
+  </div>
+
+  <div class="card-body">
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Messages</th>
+          <th>Activity Level</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for label in labels %} {% set count = values[loop.index0] %} {% set
+        max_value = values|max %}
+
+        <tr>
+          <td>{{ label }}</td>
+
+          <td>{{ count }}</td>
+
+          <td>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width: {{ (count / max_value * 100) | round }}%;"
+              >
+                {{ (count / max_value * 100) | round }}%
+              </div>
+            </div>
+          </td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

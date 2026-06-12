@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %} {% block content %}
+
+<h1 class="mb-4">Support Tickets</h1>
+
+<div class="card shadow p-4">
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>User</th>
+        <th>Issue</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for ticket in tickets %}
+
+      <tr>
+        <td>👤 {{ ticket.username }}</td>
+
+        <td>{{ ticket.issue }}</td>
+
+        <td>{{ ticket.timestamp }}</td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+# Environment variables
+.env
+*.env
+
+# Python virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# macOS files
+.DS_Store
+
+# VSCode
+.vscode/
+.idea/
+
+
+# Logs
+*.log
+
+# Firebase credentials
+*.json
+firebase-credentials.json
+
+# Build files
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/

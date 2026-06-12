@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+.sidebar {
+  position: fixed;
+  width: 240px;
+  height: 100vh;
+  background: #1f2937;
+  padding-top: 20px;
+}
+
+.sidebar h4 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 15px 25px;
+}
+
+.sidebar a:hover {
+  background: #374151;
+}
+
+.content {
+  margin-left: 240px;
+  padding: 30px;
+}
+
+.card-box {
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-box h3 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.card-box p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.chat-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.username {
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.message {
+  margin-top: 10px;
+}
+
+.response {
+  margin-top: 10px;
+  color: green;
+}
