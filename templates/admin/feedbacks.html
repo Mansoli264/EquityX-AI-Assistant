@@ -1,0 +1,31 @@
+{% extends "admin/base.html" %} {% block content %}
+
+<h1 class="mb-4">User Feedbacks</h1>
+
+<div class="card shadow p-4">
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>User</th>
+        <th>Feedback</th>
+        <th>Timestamp</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for feedback in feedbacks %}
+
+      <tr>
+        <td>👤 {{ feedback.username }}</td>
+
+        <td>{{ feedback.feedback }}</td>
+
+        <td>{{ feedback.timestamp }}</td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

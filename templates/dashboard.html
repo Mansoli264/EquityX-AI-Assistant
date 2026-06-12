@@ -1,0 +1,35 @@
+{% extends "admin/base.html" %} {% block content %}
+
+<h1 class="mb-4">Dashboard Overview</h1>
+
+<div class="row g-4">
+  <div class="col-md-3">
+    <div class="card-box bg-primary">
+      <h3>{{ total_users }}</h3>
+      <p>Registered Users</p>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card-box bg-success">
+      <h3>{{ total_chats }}</h3>
+      <p>Total Conversations</p>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card-box bg-warning">
+      <h3>{{ total_feedbacks }}</h3>
+      <p>User Feedback</p>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card-box bg-danger">
+      <h3>{{ total_tickets }}</h3>
+      <p>Support Requests</p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
