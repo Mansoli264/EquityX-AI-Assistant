@@ -6,12 +6,16 @@ import threading
 
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request
-from flask_login import (LoginManager, UserMixin, login_required, login_user,
-                         logout_user)
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
 from telegram import Update
 from telegram.constants import ChatAction
-from telegram.ext import (Application, CommandHandler, ContextTypes,
-                          MessageHandler, filters)
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    ContextTypes,
+    MessageHandler,
+    filters,
+)
 
 # LOAD ENV VARIABLES
 

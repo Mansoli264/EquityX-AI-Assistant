@@ -1,0 +1,9 @@
+services:
+  equityx:
+    build: .
+    container_name: equityx-ai
+    ports:
+      - "5051:5050"
+    env_file:
+      - .env
+    restart: unless-stopped

@@ -4,27 +4,18 @@ import os
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-firebase_file = "KT TG AI bot.json"
+firebase_json = os.getenv("FIREBASE_CREDENTIALS")
 
-if os.path.exists(firebase_file):
+if not firebase_json:
+    raise ValueError("FIREBASE_CREDENTIALS not found")
 
-    cred = credentials.Certificate(firebase_file)
+# Convert escaped characters into real JSON
+firebase_json = firebase_json.encode().decode("unicode_escape")
 
-else:
-
-    firebase_json = os.getenv("FIREBASE_CREDENTIALS")
-
-    if not firebase_json:
-
-        raise ValueError("Firebase credentials not found.")
-
-    firebase_dict = json.loads(firebase_json)
-
-    cred = credentials.Certificate(firebase_dict)
+firebase_dict = json.loads(firebase_json)
 
 if not firebase_admin._apps:
-
-    firebase_admin.initialize_app(cred)
+    firebase_admin.initialize_app(credentials.Certificate(firebase_dict))
 
 db = firestore.client()
 
