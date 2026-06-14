@@ -1,4 +1,4 @@
-# EquityX AI Assistant
+# # EquityX AI Assistant – AI-Powered Stock Market Education & Support Platform
 
 A web-based customer support platform for stock market education, built with Flask and integrated with Telegram. Users interact through a Telegram chatbot that answers trading-related queries using the Gemini API, while administrators manage users, conversations, feedback, and support tickets through a web dashboard.
 
@@ -6,7 +6,7 @@ Developed as the final-year MCA project by **Manali Solanki** (Master of Compute
 
 ---
 
-## Features
+## Key Features
 
 **User-facing (Telegram Bot)**
 
@@ -132,13 +132,106 @@ FIREBASE_CREDENTIALS={"type":"service_account", ...}
 
 Alternatively, place your Firebase service account JSON file in the project directory and update the filename in `database/firebase_config.py`.
 
-### Running
+### ## Running the Application
 
 ```bash
 python app.py
 ```
 
 This starts both the Telegram bot (polling) and the Flask admin dashboard on `http://localhost:5050`.
+
+## Docker Setup
+
+The application is fully containerized using Docker, allowing it to run consistently across development, testing, and deployment environments without requiring local dependency installation.
+
+### Prerequisites
+
+Before running the project with Docker, ensure the following tools are installed:
+
+* Docker Engine
+* Docker Compose
+
+Verify installation:
+
+```bash
+docker --version
+docker compose version
+```
+
+### Build the Application
+
+From the project root directory, build the Docker image:
+
+```bash
+docker compose build
+```
+
+Docker will create an image containing all required dependencies and project files.
+
+### Start the Application
+
+Run the application using Docker Compose:
+
+```bash
+docker compose up
+```
+
+To run the services in the background:
+
+```bash
+docker compose up -d
+```
+
+Once started, the Flask application will be available at:
+
+```text
+http://localhost:5050
+```
+
+The Telegram bot service will automatically start and begin polling for user messages.
+
+### Stop the Application
+
+To stop and remove running containers:
+
+```bash
+docker compose down
+```
+
+### Rebuild After Changes
+
+If project dependencies or configuration files are modified, rebuild the image:
+
+```bash
+docker compose build --no-cache
+```
+
+### Docker Project Files
+
+```text
+Dockerfile
+docker-compose.yml
+```
+
+These files define the application environment, dependency installation process, and service configuration required for containerized execution.
+
+### Environment Variables
+
+Docker uses the same environment configuration as the local setup. Ensure all required variables are available before starting the containers.
+
+Example:
+
+```env
+SECRET_KEY=your_flask_secret_key
+BOT_TOKEN=your_telegram_bot_token
+GEMINI_API_KEY=your_gemini_api_key
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your_admin_password
+FIREBASE_CREDENTIALS={"type":"service_account", ...}
+```
+
+For production deployments, sensitive credentials should be managed through platform environment variables rather than hard-coded configuration files.
+
 
 ---
 
@@ -239,41 +332,16 @@ Set all environment variables from the Configuration section in the Render dashb
 
 ## Screenshots
 
-### Landing Page
-
-<img width="902" height="456" alt="image" src="https://github.com/user-attachments/assets/ee571f1f-8748-48a8-980f-4b8918ee86cc" />
-
-### Admin Login
-
-<img width="902" height="472" alt="image" src="https://github.com/user-attachments/assets/16588175-d0dc-4c23-a7a3-0ff449b8cb1f" />
-
-### Admin Dashboard
-
-<img width="902" height="406" alt="image" src="https://github.com/user-attachments/assets/67898e0f-322a-43c0-93ac-7d233c5fabed" />
-
-### User Management
-
-<img width="902" height="360" alt="image" src="https://github.com/user-attachments/assets/7ed09640-96f5-4236-8106-79c9762c8c2c" />
-
-### Chat History
-
-<img width="902" height="410" alt="image" src="https://github.com/user-attachments/assets/814e072a-144d-43f7-8469-796ade981e8a" />
-
-### Feedback Management
-
-<img width="902" height="400" alt="image" src="https://github.com/user-attachments/assets/85c91681-0b6c-4fd7-b960-6288b4f49faf" />
-
-### Support Tickets
-
-<img width="902" height="394" alt="image" src="https://github.com/user-attachments/assets/26a5e78c-f14e-40f6-82a9-1707285c6ece" />
-
-### Analytics Dashboard
-
-<img width="934" height="368" alt="image" src="https://github.com/user-attachments/assets/df81ea8d-1efc-4e42-87eb-e50e353c64ac" />
-
-### Telegram Bot Integration
-
-<img width="902" height="562" alt="image" src="https://github.com/user-attachments/assets/ffbb5648-870c-4b7d-ad76-d5be84c6aa59" />
+| Screen              | Preview                                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | --- |
+| Landing Page        | <img width="600" alt="Landing Page" src="https://github.com/user-attachments/assets/1f0c79f7-56b2-48ee-aa8d-cc11fca2ff82" />        |
+| Admin Login         | <img width="600" alt="Admin Login" src="https://github.com/user-attachments/assets/eea150f2-c090-43de-9efc-c17b044b194b" />         |
+| Admin Dashboard     | <img width="600" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/b5c32ecc-d0dc-4846-8633-56158ce92775" />     |
+| User Management     | <img width="600" alt="User Management" src="https://github.com/user-attachments/assets/3fcd4892-f010-4526-8c8f-03bad2fe3ab9" />     |
+| Chat History        | <img width="600" alt="Chat History" src="https://github.com/user-attachments/assets/99df4726-d4a8-436d-95ea-91803313003a" />        |
+| Feedback Management | <img width="600" alt="Feedback Management" src="https://github.com/user-attachments/assets/61fd33f1-ae7e-4e08-b4bd-734dbe1cf452" /> |
+| Support Tickets     | <img width="600" alt="Support Tickets" src="https://github.com/user-attachments/assets/e646f9b4-608d-419a-908f-2862cd1fdee4" />     |     |
+| Telegram Bot        | <img width="600" alt="Telegram Bot" src="https://github.com/user-attachments/assets/622bdd5e-e428-4ea5-959c-d25e7d1ba6d4" />        |
 
 ## Live Demo
 
